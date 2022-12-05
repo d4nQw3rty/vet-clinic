@@ -75,7 +75,6 @@ After you're finished please remove all the comments and instructions!
 
 ### Key Features <a name="key-features"></a>
 
-> Describe between 1-3 key features of the application.
 - **[store_pet_name]**
 - **[store_pet_weight]**
 - **[store_pet_birthday]**
@@ -95,76 +94,30 @@ After you're finished please remove all the comments and instructions!
 
 ## 💻 Getting Started <a name="getting-started"></a>
 
-> Describe how a new developer could make use of your project.
-To get a local copy up and running, follow these steps.
-
 ### Prerequisites
 
 In order to run this project you need:
+- PostgreSQL
+- Visual
 
 <!--
 Example command:
 ```sh
- PostgreSQL
- Visual
+ 
 ```
  -->
 
 ### Setup
 
 Clone this repository to your desired folder:
-
+- git clone git@github.com:d4nQw3rty/vet-clinic.git
 <!--
 Example commands:
 ```sh
   cd my-folder
-  git clone git@github.com:d4nQw3rty/vet-clinic.git
+  
 ```
 --->
-
-### Install
-
-Install this project with:
-
-<!--
-Example command:
-```sh
-  cd my-project
-  gem install
-```
---->
-
-### Usage
-
-To run the project, execute the following command:
-
-<!--
-Example command:
-```sh
-  rails server
-```
---->
-
-### Run tests
-
-To run tests, run the following command:
-
-<!--
-Example command:
-```sh
-  bin/rails test test/models/article_test.rb
-```
---->
-
-### Deployment
-
-You can deploy this project using:
-
-<!--
-Example:
-```sh
-```
- -->
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -204,7 +157,6 @@ Feel free to check the [issues page](https://github.com/d4nQw3rty/vet-clinic/iss
 
 ## ⭐️ Show your support <a name="support"></a>
 
-> Write a message to encourage readers to support your project
 If you like this project give a star ⭐️
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
@@ -213,21 +165,11 @@ If you like this project give a star ⭐️
 
 ## 🙏 Acknowledgments <a name="acknowledgements"></a>
 
-> Give credit to everyone who inspired your codebase.
-I would like to thank Microverse for the opportunity to learn and grow as a developer.
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-<!-- FAQ (optional) -->
-
-## ❓ FAQ <a name="faq"></a>
-
-> Add at least 2 questions new developers would ask when they decide to use your project.
+- I would like to thank Microverse for the opportunity to learn and grow as a developer.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- LICENSE -->
-
 ## 📝 License <a name="license"></a>
 
 This project is [MIT](./LICENSE) licensed.
