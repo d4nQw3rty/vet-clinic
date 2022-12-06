@@ -6,5 +6,6 @@ CREATE TABLE animals (
     date_of_birth DATE NOT NULL,
     escape_attempts INT NOT NULL CHECK (escape_attempts >= 0),
     neutered BOOLEAN NOT NULL,
-    weight_kg FLOAT(2) NOT NULL CHECK (weight_kg >= 0)
+    weight_kg FLOAT(2) NOT NULL CHECK (weight_kg >= 0),
+    PRIMARY KEY (id)
 );
