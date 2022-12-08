@@ -131,3 +131,22 @@ FROM vets vet JOIN visits vis
 ON vet.id = vis.vet_id
 GROUP BY vet.name
 WHERE vet.full_name = 'Stephanie Mendez';
+
+/*--------------------------------3---------------------------------*/
+
+SELECT vet.full_name AS "VETERINARIAN",
+spc.name AS "SPECIALITY",
+FROM vets vet LEFT JOIN specializations spz
+ON vet.id = spz.vet_id
+LEFT JOIN species spc
+ON spc.id = spz.species_id;
+
+/*--------------------------------4---------------------------------*/
+
+SELECT a.name AS "ANIMAL",
+vet.full_name AS "VETERINARIAN",
+vis.date_of_visit AS "DATE"
+FROM animals a JOIN visits vis
+ON vis.animal_id = a.id
+JOIN vets vet ON vet.id = vis.vet_id
+WHERE vet.full_name = 'Stephanie Mendez' AND vis.date_of_visit BETWEEN'2020-04-01' AND '2020-08-30';
