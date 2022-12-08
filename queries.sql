@@ -161,3 +161,14 @@ GROUP BY a.name
 ORDER BY "# of VISITS" DESC LIMIT 1;
 
 /*--------------------------------6---------------------------------*/
+
+SELECT a.name AS "ANIMAL",
+vis.date_of_visit AS "DATE"
+FROM animals a JOIN visits vis
+ON vis.animal_id = a.id
+JOIN vets vet
+ON vet.id = vis.vet_id
+WHERE vet.full_name = 'Maisy Smith'
+ORDER BY "DATE" ASC LIMIT 1;
+
+/*--------------------------------7---------------------------------*/
