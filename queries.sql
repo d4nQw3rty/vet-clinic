@@ -109,3 +109,108 @@ FROM animals a JOIN owners o
 ON o.id = a.owners_id
 GROUP BY o.full_name
 ORDER BY "Quantity" DESC LIMIT 1;
+
+/*-----------------------------------------------------------------*/
+
+/*---------------------------------1--------------------------------*/
+
+SELECT a.name AS "ANIMAL",
+vet.full_name AS "VETERINARIAN",
+vis.date_of_visit AS "DATE OF VISIT",
+FROM animals a JOIN visits vis
+ON vis.animal_id = a.id
+JOIN vets vet ON vet.id = vis.vet_id
+WHERE vet.full_name = 'William Tatcher'
+ORDER BY vis.date_of_visit DESC LIMIT 1;
+
+/*--------------------------------2---------------------------------*/
+
+SELECT vet.name AS "VETERINARIAN",
+ COUNT(vis.date_of_visit) AS "QUANTITY"
+FROM vets vet JOIN visits vis
+ON vet.id = vis.vet_id
+GROUP BY vet.name
+WHERE vet.full_name = 'Stephanie Mendez';
+
+/*--------------------------------3---------------------------------*/
+
+SELECT vet.full_name AS "VETERINARIAN",
+spc.name AS "SPECIALITY",
+FROM vets vet LEFT JOIN specializations spz
+ON vet.id = spz.vet_id
+LEFT JOIN species spc
+ON spc.id = spz.species_id;
+
+/*--------------------------------4---------------------------------*/
+
+SELECT a.name AS "ANIMAL",
+vet.full_name AS "VETERINARIAN",
+vis.date_of_visit AS "DATE"
+FROM animals a JOIN visits vis
+ON vis.animal_id = a.id
+JOIN vets vet ON vet.id = vis.vet_id
+WHERE vet.full_name = 'Stephanie Mendez' AND vis.date_of_visit BETWEEN'2020-04-01' AND '2020-08-30';
+
+/*--------------------------------5---------------------------------*/
+
+SELECT a.name AS "ANIMAL",
+COUNT(vis.animal_id) AS "# of VISITS"
+FROM animals a JOIN visits vis
+ON vis.animal_id = a.id
+GROUP BY a.name
+ORDER BY "# of VISITS" DESC LIMIT 1;
+
+/*--------------------------------6---------------------------------*/
+
+SELECT a.name AS "ANIMAL",
+vis.date_of_visit AS "DATE"
+FROM animals a JOIN visits vis
+ON vis.animal_id = a.id
+JOIN vets vet
+ON vet.id = vis.vet_id
+WHERE vet.full_name = 'Maisy Smith'
+ORDER BY "DATE" ASC LIMIT 1;
+
+/*--------------------------------7---------------------------------*/
+
+SELECT a.name AS "ANIMAL NAME", a.date_of_birth AS "BORN IN",
+A.escape_attempts AS "# OF ESCAPE", a.neutered AS "NEUTERED",
+A.weight_kg AS "WEIGHT", vet.full_name AS "VETERINARIAN",
+vet.age AS "AGE", vet.date_of_graduation AS "GRADUATION",
+vis.date_of_visit AS "VISIT DAY"
+FROM animals a JOIN visits vis
+ON vis.animal_id = a.id
+JOIN vets vet
+ON vet.id = vis.vet_id
+ORDER BY "VISIT DAY" DESC LIMIT 1;
+
+/*--------------------------------8---------------------------------*/
+
+SELECT COUNT(vis.animal_id) AS "# OF VISITS WHERE ANIMALs TYPE DID NOT MATCH TO SPECIALIZATION"
+FROM animals a
+JOIN visits vis
+ON vis.animal_id = a.id
+JOIN vets vet
+ON vet.id = vis.vet_id
+JOIN species s ON s.id = a.species_id
+JOIN specializations spz
+ON spz.vet_id = vet.id
+JOIN species spc
+ON spc.id = spz.species_id
+WHERE s.name <> spc.name;
+
+/*--------------------------------9---------------------------------*/
+
+SELECT vet.name AS "VETERINARIAN",
+s.name AS "TYPE OF ANIMAL",
+COUNT (s.name) AS "QUANTITY"
+FROM vets vet
+JOIN visits vis
+ON vet.id = vis.vet_id
+JOIN animals a
+ON a.id = vis.animal_id
+JOIN species s
+ON s.id = a.species_id
+WHERE vet.name = 'Maisy Smith'
+GROUP BY s.name, vet.full_name
+ORDER BY "QUANTITY" ASC LIMIT 1;
