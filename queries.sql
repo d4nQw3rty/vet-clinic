@@ -150,3 +150,14 @@ FROM animals a JOIN visits vis
 ON vis.animal_id = a.id
 JOIN vets vet ON vet.id = vis.vet_id
 WHERE vet.full_name = 'Stephanie Mendez' AND vis.date_of_visit BETWEEN'2020-04-01' AND '2020-08-30';
+
+/*--------------------------------5---------------------------------*/
+
+SELECT a.name AS "ANIMAL",
+COUNT(vis.animal_id) AS "# of VISITS"
+FROM animals a JOIN visits vis
+ON vis.animal_id = a.id
+GROUP BY a.name
+ORDER BY "# of VISITS" DESC LIMIT 1;
+
+/*--------------------------------6---------------------------------*/
