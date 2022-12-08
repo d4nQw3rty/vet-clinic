@@ -183,3 +183,19 @@ ON vis.animal_id = a.id
 JOIN vets vet
 ON vet.id = vis.vet_id
 ORDER BY "VISIT DAY" DESC LIMIT 1;
+
+/*--------------------------------8---------------------------------*/
+
+SELECT COUNT(vis.animal_id) AS "# OF VISITS WHERE ANIMALs TYPE DID NOT MATCH TO SPECIALIZATION"
+FROM animals a
+JOIN visits vis
+ON vis.animal_id = a.id
+JOIN vets vet
+ON vet.id = vis.vet_id
+JOIN species s ON s.id = a.species_id
+JOIN specializations spz
+ON spz.vet_id = vet.id
+JOIN species spc
+ON spc.id = spz.species_id
+WHERE s.name <> spc.name;
+
