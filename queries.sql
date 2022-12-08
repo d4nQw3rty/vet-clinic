@@ -199,3 +199,18 @@ JOIN species spc
 ON spc.id = spz.species_id
 WHERE s.name <> spc.name;
 
+/*--------------------------------9---------------------------------*/
+
+SELECT vet.name AS "VETERINARIAN",
+s.name AS "TYPE OF ANIMAL",
+COUNT (s.name) AS "QUANTITY"
+FROM vets vet
+JOIN visits vis
+ON vet.id = vis.vet_id
+JOIN animals a
+ON a.id = vis.animal_id
+JOIN species s
+ON s.id = a.species_id
+WHERE vet.name = 'Maisy Smith'
+GROUP BY s.name, vet.full_name
+ORDER BY "QUANTITY" ASC LIMIT 1;
