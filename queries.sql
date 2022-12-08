@@ -109,3 +109,25 @@ FROM animals a JOIN owners o
 ON o.id = a.owners_id
 GROUP BY o.full_name
 ORDER BY "Quantity" DESC LIMIT 1;
+
+/*-----------------------------------------------------------------*/
+
+/*---------------------------------1--------------------------------*/
+
+SELECT a.name AS "ANIMAL",
+vet.full_name AS "VETERINARIAN",
+vis.date_of_visit AS "DATE OF VISIT",
+FROM animals a JOIN visits vis
+ON vis.animal_id = a.id
+JOIN vets vet ON vet.id = vis.vet_id
+WHERE vet.full_name = 'William Tatcher'
+ORDER BY vis.date_of_visit DESC LIMIT 1;
+
+/*--------------------------------2---------------------------------*/
+
+SELECT vet.name AS "VETERINARIAN",
+ COUNT(vis.date_of_visit) AS "QUANTITY"
+FROM vets vet JOIN visits vis
+ON vet.id = vis.vet_id
+GROUP BY vet.name
+WHERE vet.full_name = 'Stephanie Mendez';
