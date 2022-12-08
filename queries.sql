@@ -172,3 +172,14 @@ WHERE vet.full_name = 'Maisy Smith'
 ORDER BY "DATE" ASC LIMIT 1;
 
 /*--------------------------------7---------------------------------*/
+
+SELECT a.name AS "ANIMAL NAME", a.date_of_birth AS "BORN IN",
+A.escape_attempts AS "# OF ESCAPE", a.neutered AS "NEUTERED",
+A.weight_kg AS "WEIGHT", vet.full_name AS "VETERINARIAN",
+vet.age AS "AGE", vet.date_of_graduation AS "GRADUATION",
+vis.date_of_visit AS "VISIT DAY"
+FROM animals a JOIN visits vis
+ON vis.animal_id = a.id
+JOIN vets vet
+ON vet.id = vis.vet_id
+ORDER BY "VISIT DAY" DESC LIMIT 1;
