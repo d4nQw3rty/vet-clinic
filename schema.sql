@@ -58,5 +58,13 @@ CREATE TABLE visits(
     PRIMARY KEY (animal_id, vet_id, date_of_visit);
 );
 
+
+
 -- Add an email column to your owners table
 ALTER TABLE owners ADD COLUMN email VARCHAR(120);
+
+CREATE INDEX ON visits (vet_id);
+CREATE INDEX IF NOT EXISTS owner_index
+    ON owners USING btree
+    (email COLLATE pg_catalog."default" ASC NULLS LAST)
+
